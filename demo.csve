@@ -1,0 +1,7 @@
+id:int,user.name,user.age:float,user.isVip:bool,user.gamesPlayed:[],message.content,message.dateSend:int,lucky:random,nested.property.number.array:number[],special:emoji
+1,Alice,28.5,true,Tetris;Pac-Man,Hello how are you?,1648872000,-this-can-be-anything-,1;2;3;4,:D
+2,Bob,42.0,false,,Hey there!,1648882800,-1,5;6;7,:party:
+3,Charlie,19.3,true,Chess;Checkers;Monopoly,Howdy!,1648915200,---,21;22;23,:beer:
+5,Hannah,31.6,false,Animal Crossing,What's new?,1648926000,random,24;25;26;27,:flower:
+# 6,Isaac,19.4,true,League of Legends;Dota 2
+# This is a comment
