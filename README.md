@@ -72,7 +72,7 @@ Into beautiful objects that are ready to use in a JavaScript or TypeScript proje
 
 ---
 
-## Usecase
+## Usage
 
 To use it, simply import the parseCSV function and pass a string with CSV data like this:
 ```ts
