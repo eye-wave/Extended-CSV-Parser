@@ -116,9 +116,10 @@ const customTypes:CustomTypeDefinition[] =[
     name: "emoji",
     parse: input => {
       switch ( input ) {
-        case ":)": return "😄"
         case ":D": return "😃"
-        case ":(": return "😢"
+        case ":flower:": return "🌺"
+        case ":party:": return "🎉"
+        case ":beer:": return "🍺"
         default: return input
       }
     }
@@ -139,6 +140,7 @@ const customTypes:CustomTypeDefinition[] =[
 ## To do
 - [ ] Escaping `,` and `"` characters \
 ( right now parser uses .split(",") method, which is problematic for some files. )
+- [ ] NPM package
 - [ ] Vscode Extension for better syntax highlighting
 - [ ] Rollup plugin
 - [ ] readStream version of parseCSV for better performance
