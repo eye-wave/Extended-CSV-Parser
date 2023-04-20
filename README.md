@@ -76,7 +76,7 @@ Into beautiful objects that are ready to use in a JavaScript or TypeScript proje
 
 To use it, simply import the parseCSV function and pass a string with CSV data like this:
 ```ts
-import { type CustomTypeDefinition, parseCSV } from "./parser.ts"
+import { type CustomTypeDefinition, parseCSV } from "extended-csv-parser"
 
 const customTypes =[] as CustomTypeDefinition[]
 
@@ -105,7 +105,7 @@ console.log(json)
 You may be wondering what those `random` and `emoji` types are for.\
 This parser allows for custom type definitions, as shown here:
 ```ts
-import type { CustomTypeDefinition } from "./parser.ts"
+import type { CustomTypeDefinition } from "extended-csv-parser"
 
 const customTypes:CustomTypeDefinition[] =[
   {
