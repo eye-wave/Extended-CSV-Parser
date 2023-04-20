@@ -1,7 +1,0 @@
-{
-  "deno.enable": true,
-  "deno.unstable": true,
-  "files.associations": {
-    "*.csve": "source.csv.custom"
-  },
-}

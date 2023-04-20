@@ -34,14 +34,19 @@ function parseItemWithType(input:string, type:string, customTypes:CustomTypeDefi
       })
   }
 
-  const n =parseFloat(input)
+  const n =input.startsWith("0x") ? parseInt(input) : parseFloat(input)
 
   switch ( type ) {
     case "float":
     case "number": return isNaN(n) ? null : n
     case "int": return isNaN(n) ? null : Math.floor(n)
     case "bool":
-    case "boolean": return input.toLowerCase() === "true"
+    case "boolean": {
+      const lower =input.toLowerCase()
+      if ( lower === "true" ) return true
+      if ( lower === "false" ) return false
+      return null
+    }
   }
 
   for ( const typedef of customTypes ) {
@@ -101,7 +106,7 @@ function getSchemaFromCSV(input:string):Schema {
     .map(item => {
 
       const [ rawToken, type ="string" ] =item.split(":")
-      const tokens =rawToken.split(".")
+      const tokens =rawToken?.split(".") || []
 
       return { type, tokens }
     })

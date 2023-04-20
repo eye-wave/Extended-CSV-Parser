@@ -1,0 +1,36 @@
+{
+  "name": "extended-csv-parser",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "NODE_ENV=production rollup -c",
+    "dev": "rollup -wc",
+    "lint": "eslint . --fix",
+    "start": "NODE_OPTIONS=--enable-source-maps nodemon ./dist/index.js",
+    "update": "ncu -u",
+    "test": "vitest"
+  },
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "files": [
+    "./lib"
+  ],
+  "types": "./lib/index.d.ts",
+  "typings": "./lib/index.d.ts",
+  "type": "module",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-terser": "0.4.1",
+    "@rollup/plugin-typescript": "^11.1.0",
+    "@types/node": "^18.15.12",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "eslint": "^8.38.0",
+    "nodemon": "*",
+    "npm-check-updates": "*",
+    "rollup": "^3.20.6",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.4",
+    "vitest": "^0.30.1"
+  },
+  "license": "MIT"
+}
