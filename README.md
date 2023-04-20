@@ -140,7 +140,7 @@ const customTypes:CustomTypeDefinition[] =[
 ## To do
 - [ ] Escaping `,` and `"` characters \
 ( right now parser uses .split(",") method, which is problematic for some files. )
-- [ X ] NPM package
+- [x] NPM package
 - [ ] Vscode Extension for better syntax highlighting
 - [ ] Rollup plugin
 - [ ] readStream version of parseCSV for better performance
