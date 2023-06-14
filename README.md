@@ -6,6 +6,7 @@ It allows for nested object properties, strongly typed values, arrays, and comme
 ---
 
 It transforms text inputs like this:
+
 ```
 id:int,user.name,user.age:float,user.isVip:bool,user.gamesPlayed:[],message.content,message.dateSend:int,lucky:random,nested.property.number.array:number[],special:emoji
 1,Alice,28.5,true,Tetris;Pac-Man,Hello how are you?,1648872000,-this-can-be-anything-,1;2;3;4,:D
@@ -17,6 +18,7 @@ id:int,user.name,user.age:float,user.isVip:bool,user.gamesPlayed:[],message.cont
 ```
 
 Into beautiful objects that are ready to use in a JavaScript or TypeScript project.
+
 ```json
 [
   {
@@ -25,14 +27,14 @@ Into beautiful objects that are ready to use in a JavaScript or TypeScript proje
       "name": "Alice",
       "age": 28.5,
       "isVip": true,
-      "gamesPlayed": [ "Tetris", "Pac-Man" ]
+      "gamesPlayed": ["Tetris", "Pac-Man"]
     },
     "message": {
       "content": "Hello how are you?",
       "dateSend": 1648872000
     },
     "lucky": 0.849495919176418,
-    "nested": { "property": { "number": { "array": [ 1,2,3,4 ] } } },
+    "nested": { "property": { "number": { "array": [1, 2, 3, 4] } } },
     "special": "😃"
   },
   {
@@ -48,7 +50,7 @@ Into beautiful objects that are ready to use in a JavaScript or TypeScript proje
       "dateSend": 1648882800
     },
     "lucky": 0.027607189531068554,
-    "nested": { "property": { "number": { "array": [5,6,7] } } },
+    "nested": { "property": { "number": { "array": [5, 6, 7] } } },
     "special": "🎉"
   },
   {
@@ -57,14 +59,14 @@ Into beautiful objects that are ready to use in a JavaScript or TypeScript proje
       "name": "Charlie",
       "age": 19.3,
       "isVip": true,
-      "gamesPlayed": [ "Chess", "Checkers", "Monopoly" ]
+      "gamesPlayed": ["Chess", "Checkers", "Monopoly"]
     },
     "message": {
       "content": "Howdy!",
       "dateSend": 1648915200
     },
     "lucky": 0.31084866168836345,
-    "nested": { "property": { "number": { "array": [ 21,22,23 ] } } },
+    "nested": { "property": { "number": { "array": [21, 22, 23] } } },
     "special": "🍺"
   }
 ]
@@ -75,14 +77,15 @@ Into beautiful objects that are ready to use in a JavaScript or TypeScript proje
 ## Usage
 
 To use it, simply import the parseCSV function and pass a string with CSV data like this:
+
 ```ts
 import { type CustomTypeDefinition, parseCSV } from "extended-csv-parser"
 
-const customTypes =[] as CustomTypeDefinition[]
+const customTypes = [] as CustomTypeDefinition[]
 
-const file =Deno.readTextFileSync("demo.csve")
-const data =parseCSV(file,customTypes)
-const json =JSON.stringify(data,null,2)
+const file = Deno.readTextFileSync("demo.csve")
+const data = parseCSV(file, customTypes)
+const json = JSON.stringify(data, null, 2)
 
 console.log(json)
 ```
@@ -90,6 +93,7 @@ console.log(json)
 ---
 
 ## Supported built-in types
+
 - string ( default )
 - float
 - number
@@ -104,26 +108,32 @@ console.log(json)
 
 You may be wondering what those `random` and `emoji` types are for.\
 This parser allows for custom type definitions, as shown here:
+
 ```ts
 import type { CustomTypeDefinition } from "extended-csv-parser"
 
-const customTypes:CustomTypeDefinition[] =[
+const customTypes: CustomTypeDefinition[] = [
   {
     name: "random",
-    parse: () => Math.random()
+    parse: () => Math.random(),
   },
   {
     name: "emoji",
     parse: input => {
-      switch ( input ) {
-        case ":D": return "😃"
-        case ":flower:": return "🌺"
-        case ":party:": return "🎉"
-        case ":beer:": return "🍺"
-        default: return input
+      switch (input) {
+        case ":D":
+          return "😃"
+        case ":flower:":
+          return "🌺"
+        case ":party:":
+          return "🎉"
+        case ":beer:":
+          return "🍺"
+        default:
+          return input
       }
-    }
-  }
+    },
+  },
 ]
 ```
 
@@ -136,10 +146,10 @@ const customTypes:CustomTypeDefinition[] =[
 - `:` - used to add a optional type to a header entry
 - `;` - array item separator
 
-
 ## To do
+
 - [ ] Escaping `,` and `"` characters \
-( right now parser uses .split(",") method, which is problematic for some files. )
+       ( right now parser uses .split(",") method, which is problematic for some files. )
 - [x] NPM package
 - [ ] Vscode Extension for better syntax highlighting
 - [ ] Rollup plugin
