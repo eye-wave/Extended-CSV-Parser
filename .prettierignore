@@ -1,12 +1,5 @@
-!.env.example
-.DS_Store
-.env
-.env.*
-/dist
-/download
-/lib
-/package
-node_modules
+lib/
+node_modules/
 package-lock.json
 pnpm-lock.yaml
 yarn.lock

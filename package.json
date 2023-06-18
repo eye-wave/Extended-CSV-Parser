@@ -2,12 +2,11 @@
   "name": "extended-csv-parser",
   "version": "0.0.1",
   "scripts": {
-    "build": "NODE_ENV=production rollup -c",
-    "dev": "rollup -wc",
+    "start": "NODE_OPTIONS=--enable-source-maps node ./lib/index.js",
+    "build": "esbuild ./src/index.ts --format=esm --target=node16 --platform=node --packages=external --sourcemap --bundle --minify --outfile=./lib/index.js --analyze && tsc --emitDeclarationOnly",
+    "dev": "esbuild ./src/index.ts --format=esm --target=node16 --platform=node --packages=external --sourcemap --bundle --outfile=./lib/index.js --watch",
     "format": "prettier . --write",
-    "lint": "eslint . --fix && npm run format",
-    "start": "NODE_OPTIONS=--enable-source-maps nodemon ./dist/index.js",
-    "update": "ncu -u",
+    "lint": "npm run format && npm run eslint",
     "test": "vitest"
   },
   "main": "./lib/index.js",
@@ -19,22 +18,15 @@
   "typings": "./lib/index.d.ts",
   "type": "module",
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.1.0",
-    "@rollup/plugin-terser": "0.4.3",
-    "@rollup/plugin-typescript": "^11.1.1",
     "@types/node": "^20.3.1",
     "@typescript-eslint/eslint-plugin": "^5.59.11",
     "@typescript-eslint/parser": "^5.59.11",
+    "esbuild": "^0.18.4",
     "eslint-config-prettier": "^8.8.0",
-    "eslint": "^8.42.0",
-    "nodemon": "*",
-    "npm-check-updates": "*",
+    "eslint": "^8.43.0",
     "prettier-plugin-organize-imports": "^3.2.2",
     "prettier": "^2.8.8",
-    "rollup": "^3.25.1",
-    "tslib": "^2.5.3",
-    "typescript": "^5.1.3",
-    "vitest": "^0.32.0"
+    "vitest": "^0.32.2"
   },
   "license": "MIT"
 }
